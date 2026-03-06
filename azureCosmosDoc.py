@@ -6,6 +6,12 @@ from azure.cosmos import exceptions, CosmosClient, PartitionKey
 from typing import Dict, Any
 import json
 
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # 1. Get your Primary Connection String
 # You can find this in the Azure portal under your Cosmos DB account -> Keys.
 # The connection string is in the format:

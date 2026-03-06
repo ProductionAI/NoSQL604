@@ -5,7 +5,11 @@ import traceback
 import asyncio
 from azure.cosmos import CosmosClient
 
+import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
 if sys.platform == 'win32':
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 

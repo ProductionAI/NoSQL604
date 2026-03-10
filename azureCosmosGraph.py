@@ -10,6 +10,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+
+cosmoskey = os.getenv("COSMOS_CONNECTION_STRING_GRAPH")
 if sys.platform == 'win32':
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
@@ -162,7 +164,7 @@ def execute_drop_operations(client):
 
 
 try:
-    primary_key = "<INSERT KEY>"
+    primary_key = cosmoskey
    
     client = client.Client(hostname, 'g',
     #client = client.Client('https://<INSERT HOST>.gremlin.cosmos.azure.com:443/', 'g',

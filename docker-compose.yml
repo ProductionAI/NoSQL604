@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my_root_password
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: user1_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_web
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mariadb  # Connects to the service name defined above
+      MYSQL_ROOT_PASSWORD: my_root_password
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb_data:

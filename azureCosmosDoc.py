@@ -1,3 +1,5 @@
+#pip install - azure-cosmos
+
 from azure.identity import DefaultAzureCredential
 from azure.cosmos import CosmosClient
 
@@ -11,6 +13,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+print("hello")
+COSMOS_CONNECTION_STRING = os.getenv("COSMOS_CONNECTION_STRING")
+print(COSMOS_CONNECTION_STRING)
 
 # 1. Get your Primary Connection String
 # You can find this in the Azure portal under your Cosmos DB account -> Keys.
@@ -18,7 +23,6 @@ load_dotenv()
 # AccountEndpoint=https://<your-account-name>.documents.azure.com:443/;AccountKey=<your-primary-key>;
 
 # !!! IMPORTANT: Replace the placeholder with your actual connection string !!!
-COSMOS_CONNECTION_STRING = "INSERT CONNECTION KEY" 
 ""
 DATABASE_NAME = "ProdAI"
 CONTAINER_NAME = "Sensor"
